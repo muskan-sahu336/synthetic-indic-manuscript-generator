@@ -1,0 +1,53 @@
+seed: 42
+count: 100
+output: output
+splits: {train: 0.85, validation: 0.10, test: 0.05}
+retry_limit: 6
+min_block_lines: 12        # abort if corpus // count is smaller than this
+
+backgrounds:
+  paper_size: [1600, 720]  # width, height
+  palm_size: [2000, 450]
+  rules_side: right
+
+layout:
+  paper_lines: [7, 10]     # inclusive range
+  palm_lines: [3, 5]
+  margin_notes: true
+
+export:
+  include_notes_in_md: true
+
+overflow:
+  thresh: 0.15
+  border: 6
+
+# Optional overrides; anything omitted uses the defaults in src/effects.py and src/renderer.py
+effects:
+  bleed_sigma: [0.8, 1.4]
+  bleed_strength: [0.15, 0.30]
+  fade_strength: [0.10, 0.25]
+  dropout: 0.25
+  n_smudges: [0, 2]
+  n_blots: [0, 2]
+  n_folds: [0, 3]
+style: {}
+
+# Script registry: to add a script, add an entry here (and its font and corpus file)
+scripts:
+  devanagari:
+    font: fonts/Kalam-Regular.ttf
+    font_fallback: fonts/NotoSansDevanagari-Regular.ttf
+    corpus: data/texts/devanagari_clean.txt
+    digit_base: 0x0966
+    paper_prob: 0.6        # probability of paper (else palm leaf)
+  modi:
+    font: fonts/NotoSansModi-Regular.ttf
+    corpus: data/texts/modi_clean.txt
+    digit_base: 0x11650
+    paper_prob: 0.6
+  sharada:
+    font: fonts/NotoSansSharada-Regular.ttf
+    corpus: data/texts/sharada_clean.txt
+    digit_base: 0x111D0
+    paper_prob: 0.6
