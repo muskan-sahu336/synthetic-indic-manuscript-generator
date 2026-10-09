@@ -18,8 +18,8 @@ A Python pipeline that renders synthetic historical manuscript folios from plain
 ## Installation
 
 ```bash
-git clone <this repository>
-cd manuscript-gen
+git clone https://github.com/muskan-sahu336/synthetic-indic-manuscript-generator.git
+cd synthetic-indic-manuscript-generator
 python -m venv venv
 venv\Scripts\activate          # Windows
 # source venv/bin/activate     # Linux / macOS
